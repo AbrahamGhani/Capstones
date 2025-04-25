@@ -3,6 +3,9 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 public class Transaction {
+    static Scanner scanner = new Scanner(System.in);
+
+
 
     String date;
     String time;
@@ -63,11 +66,6 @@ public class Transaction {
     }
 
 
-    public void CSVFormatDisplayTransactionInfo(){
-        System.out.println(this.getDate() + "|" + this.getTime() + "|" + this.getDescription() + "|"
-                + this.getVendor() + "|" + this.getAmount());
-
-    }
 
     public void displayTransactionInfo(){
         System.out.println("Date: " + this.getDate());

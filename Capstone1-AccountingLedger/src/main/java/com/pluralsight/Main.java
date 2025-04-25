@@ -21,11 +21,10 @@ public class Main {
 
 
         boolean homeMenu = true;
-
         while (homeMenu){
 
             System.out.println("======Home Menu======");
-            System.out.println("D) Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
+            System.out.println("D)  Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
             String userMenuInput = scanner.nextLine();
 
             if (userMenuInput.equalsIgnoreCase("d")){
@@ -34,7 +33,7 @@ public class Main {
             else if (userMenuInput.equalsIgnoreCase("p")){
                 System.out.println("Payment info");
             } else if (userMenuInput.equalsIgnoreCase("l")) {
-                System.out.println("Display ledger menu(loop)");
+                System.out.println("Display ledger menu(loop)");// create loop
             } else if (userMenuInput.equalsIgnoreCase("x")) {
                 System.out.println("Bye!");
                 homeMenu = false;
@@ -43,7 +42,9 @@ public class Main {
             }
 
 
-        }
+
+
+        }//while loop end
 
 
 

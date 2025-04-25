@@ -3,6 +3,9 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 public class Account {
+    static Scanner scanner = new Scanner(System.in);
+
+
 
     double balance;
     String owner;
