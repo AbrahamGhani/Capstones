@@ -24,14 +24,16 @@ public class Main {
         while (homeMenu){
 
             System.out.println("======Home Menu======");
-            System.out.println("D)  Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
+            System.out.println("D) Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
             String userMenuInput = scanner.nextLine();
 
             if (userMenuInput.equalsIgnoreCase("d")){
-                System.out.println("Deposit info");
+                TransactionHelper.writeDepositIntoFIle();
+
             }
             else if (userMenuInput.equalsIgnoreCase("p")){
-                System.out.println("Payment info");
+                TransactionHelper.writePaymentIntoFile();
+
             } else if (userMenuInput.equalsIgnoreCase("l")) {
                 System.out.println("Display ledger menu(loop)");// create loop
             } else if (userMenuInput.equalsIgnoreCase("x")) {
