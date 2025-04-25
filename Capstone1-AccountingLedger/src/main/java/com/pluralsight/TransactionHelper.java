@@ -78,22 +78,46 @@ public static void writePaymentIntoFile(){
     }
 }
 
-public static void createListOfTransactions(){
+public static List<Transaction> listOfTransactions(){
+List<Transaction> transactions = new ArrayList<>();
+
 
     try {
         FileReader fileReader = new FileReader("transactions.csv");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
+        bufferedReader.readLine();
+        String line;
+        String[] details;
+        while ((line = bufferedReader.readLine()) != null){
+            details = line.split("\\|");
+            String date = details[0];
+            String time = details[1];
+            String description = details[2];
+            String vendor = details[3];
+            double amount = Double.parseDouble(details[4]);
 
+            Transaction t = new Transaction(date,time,description,vendor,amount);
 
-
-
-
-    } catch (FileNotFoundException e) {
+            transactions.add(t);
+        }
+        bufferedReader.close();
+    } catch (Exception e) {
         throw new RuntimeException(e);
     }
 
-
+return transactions;
 }
+
+
+public static void displayListOfTransaction(List<Transaction> _transactions){
+    int transactionQuantityCounter = 1;
+    for (Transaction transaction : _transactions){
+        System.out.println("-------- " + transactionQuantityCounter + " --------");
+        transaction.displayTransactionInfo();
+        transactionQuantityCounter++;
+    }
+}
+
 
 
 }

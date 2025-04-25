@@ -22,7 +22,7 @@ public class Main {
 
         boolean homeMenu = true;
         while (homeMenu){
-
+            List<Transaction> transactions = TransactionHelper.listOfTransactions();
             System.out.println("======Home Menu======");
             System.out.println("D) Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
             String userMenuInput = scanner.nextLine();
@@ -36,6 +36,7 @@ public class Main {
 
             } else if (userMenuInput.equalsIgnoreCase("l")) {
                 System.out.println("Display ledger menu(loop)");// create loop
+                TransactionHelper.displayListOfTransaction(transactions);
             } else if (userMenuInput.equalsIgnoreCase("x")) {
                 System.out.println("Bye!");
                 homeMenu = false;
