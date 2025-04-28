@@ -23,6 +23,9 @@ public class Main {
         boolean homeMenu = true;
         while (homeMenu){
             List<Transaction> transactions = TransactionHelper.listOfTransactions();
+
+            TransactionHelper.sortListByDateDescending(transactions);
+
             System.out.println("======Home Menu======");
             System.out.println("D) Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
             String userMenuInput = scanner.nextLine();

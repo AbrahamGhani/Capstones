@@ -23,6 +23,20 @@ public static String formatLocalTime(LocalTime _time){
 
     }
 
+    public static void sortListByDateDescending(List<Transaction> _transactions){
+    _transactions.sort((t1,t2) -> {
+       int dateComparison =  t2.getDate().compareTo(t1.getDate()); // compare dates
+
+       if (dateComparison != 0){
+           return dateComparison; // if dates are different use date comparison
+       }
+       else {
+           return  t2.getTime().compareTo(t1.getTime()); // if the dates are the same compare the times instead
+       }
+    });
+    }
+
+
 public static void writeDepositIntoFIle(){
 
     try {
@@ -117,7 +131,9 @@ public static void displayListOfTransaction(List<Transaction> _transactions){
         System.out.println("-------- " + transactionQuantityCounter + " --------");
         transaction.displayTransactionInfo();
         transactionQuantityCounter++;
+        System.out.println();
     }
+    System.out.println();
 }
 
 public static void depositsList(List<Transaction> _transactions){
@@ -148,7 +164,7 @@ public static void depositsList(List<Transaction> _transactions){
 
 public static void ledgerMenu(List<Transaction> _transactions){
     while (true){
-        System.out.println("A) All Entries\nD)Only Deposits\nP)Only Payments\nR)View Reports\nH)Return to Home");
+        System.out.println("A) All Entries\nD) Only Deposits\nP) Only Payments\nR) View Reports\nH) Return to Home");
         String userInput = scanner.nextLine();
 
         if (userInput.equalsIgnoreCase("a")){
@@ -174,7 +190,7 @@ public static void reportsMenu(List<Transaction> _transactions){
    boolean reportMenu = true;
     while (reportMenu) {
        System.out.println("1) Month-to-Date\n2) Previous Month\n3) Year-to-Date\n" +
-               "4) Previous Year\n5) Search by vendor\n6)Search by range of dates\n0) Back");
+               "4) Previous Year\n5) Search by vendor\n6) Search by range of dates\n0) Back");
        int userChoice = scanner.nextInt();
        scanner.nextLine();
        LocalDate todaysDate = LocalDate.now();
@@ -220,6 +236,7 @@ public static void monthToDate(List<Transaction> _transactions, LocalDate todays
             System.out.println();
         }
     }
+    System.out.println();
 }
 
 
@@ -238,6 +255,7 @@ public static void monthToDate(List<Transaction> _transactions, LocalDate todays
             }
 
         }
+        System.out.println();
     }
 
 
