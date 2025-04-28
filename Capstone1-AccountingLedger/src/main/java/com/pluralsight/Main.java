@@ -35,8 +35,7 @@ public class Main {
                 TransactionHelper.writePaymentIntoFile();
 
             } else if (userMenuInput.equalsIgnoreCase("l")) {
-                System.out.println("Display ledger menu(loop)");// create loop
-                TransactionHelper.displayListOfTransaction(transactions);
+                TransactionHelper.ledgerMenu(transactions);
             } else if (userMenuInput.equalsIgnoreCase("x")) {
                 System.out.println("Bye!");
                 homeMenu = false;

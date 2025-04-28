@@ -118,6 +118,82 @@ public static void displayListOfTransaction(List<Transaction> _transactions){
     }
 }
 
+public static void depositsList(List<Transaction> _transactions){
+    int transactionQuantityCounter = 1;
+    for (Transaction transaction : _transactions){
+        if (transaction.getAmount() > 0) {
+            System.out.println("-------- " + transactionQuantityCounter + " --------");
+            transaction.displayTransactionInfo();
+            transactionQuantityCounter++;
+            System.out.println();
+        }
+    }
+    System.out.println();
+}
 
+    public static void paymentsList(List<Transaction> _transactions){
+        int transactionQuantityCounter = 1;
+        for (Transaction transaction : _transactions){
+            if (transaction.getAmount() < 0) {
+                System.out.println("-------- " + transactionQuantityCounter + " --------");
+                transaction.displayTransactionInfo();
+                transactionQuantityCounter++;
+                System.out.println();
+            }
+        }
+        System.out.println();
+    }
+
+public static void ledgerMenu(List<Transaction> _transactions){
+    while (true){
+        System.out.println("A) All Entries\nD)Only Deposits\nP)Only Payments\nR)View Reports\nH)Return to Home");
+        String userInput = scanner.nextLine();
+
+        if (userInput.equalsIgnoreCase("a")){
+            displayListOfTransaction(_transactions);
+        } else if (userInput.equalsIgnoreCase("d")) {
+            depositsList(_transactions);
+        } else if (userInput.equalsIgnoreCase("p")) {
+            paymentsList(_transactions);
+        } else if (userInput.equalsIgnoreCase("r")) {
+            System.out.println("Reports menu");
+        } else if (userInput.equalsIgnoreCase("h")) {
+            System.out.println("Returning to home menu.");
+            break;
+        }
+
+    }
+}
+
+
+public static void reportsMenu(List<Transaction> _transactions){
+   boolean reportMenu = true;
+    while (reportMenu) {
+       System.out.println("1) Month-to-Date\n2) Previous Month\n3) Year-to-Date\n" +
+               "4) Previous Year\n5)Search by Vendor\n0) Back");
+       int userChoice = scanner.nextInt();
+       scanner.nextLine();
+       LocalDate todaysDate = LocalDate.now();
+       int year = todaysDate.getYear();
+       int month = todaysDate.getMonthValue();
+
+       switch (userChoice){
+           case 1:
+               for (Transaction transaction : _transactions){
+                   System.out.println();
+               }
+
+           case 2:
+           case 3:
+           case 4:
+           case 5:
+           case 0:
+               System.out.println("Returning");
+               reportMenu = false;
+           default:
+               System.out.println("Invalid Option.");
+       }
+   }
+}
 
 }
