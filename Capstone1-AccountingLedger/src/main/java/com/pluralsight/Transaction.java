@@ -7,14 +7,15 @@ public class Transaction {
 
 
 
-    String date;
-    String time;
+
+    LocalDate date;
+    LocalTime time;
     String description;
     String vendor;
     double amount;
 
 
-    public Transaction(String date, String time, String description, String vendor, double amount) {
+    public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
         this.time = time;
         this.description = description;
@@ -22,22 +23,23 @@ public class Transaction {
         this.amount = amount;
     }
 
+
     public Transaction() {
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
@@ -68,8 +70,8 @@ public class Transaction {
 
 
     public void displayTransactionInfo(){
-        System.out.println("Date: " + this.getDate());
-        System.out.println("Time: " + this.getTime());
+        System.out.println("Date: " + TransactionHelper.formatLocalDate(this.getDate()));
+        System.out.println("Time: " + TransactionHelper.formatLocalTime(this.getTime()));
         System.out.println("Description: " + this.getDescription());
         System.out.println("Vendor: " + this.getVendor());
         System.out.println("Amount: $" + this.getAmount());
