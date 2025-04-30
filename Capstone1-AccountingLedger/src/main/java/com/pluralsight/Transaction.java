@@ -3,18 +3,16 @@ import java.io.*;
 import java.time.*;
 import java.util.*;
 public class Transaction {
-    static Scanner scanner = new Scanner(System.in);
 
 
+// transaction fields
+    private LocalDate date;
+    private LocalTime time;
+    private String description;
+    private String vendor;
+    private double amount;
 
-
-    LocalDate date;
-    LocalTime time;
-    String description;
-    String vendor;
-    double amount;
-
-
+// constructor with all fields
     public Transaction(LocalDate date, LocalTime time, String description, String vendor, double amount) {
         this.date = date;
         this.time = time;
@@ -23,10 +21,12 @@ public class Transaction {
         this.amount = amount;
     }
 
-
+// default constructor
     public Transaction() {
     }
 
+
+    // getters and setters
     public LocalDate getDate() {
         return date;
     }
@@ -68,7 +68,7 @@ public class Transaction {
     }
 
 
-
+    // displays the info of a transaction in a formatted way
     public void displayTransactionInfo(){
         System.out.println("Date: " + TransactionHelper.formatLocalDate(this.getDate()));
         System.out.println("Time: " + TransactionHelper.formatLocalTime(this.getTime()));

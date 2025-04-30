@@ -20,38 +20,14 @@ public class Main {
         */
 
 
-        boolean homeMenu = true;
-        while (homeMenu){
-            List<Transaction> transactions = TransactionHelper.listOfTransactions();
 
-            TransactionHelper.sortListByDateDescending(transactions);
-
-            System.out.println("======Home Menu======");
-            System.out.println("D) Add Deposit\nP) Make Payment\nL) Ledger\nX) Exit");
-            String userMenuInput = scanner.nextLine();
-
-            if (userMenuInput.equalsIgnoreCase("d")){
-                TransactionHelper.writeDepositIntoFIle();
-
-            }
-            else if (userMenuInput.equalsIgnoreCase("p")){
-                TransactionHelper.writePaymentIntoFile();
-
-            } else if (userMenuInput.equalsIgnoreCase("l")) {
-                TransactionHelper.ledgerMenu(transactions);
-            } else if (userMenuInput.equalsIgnoreCase("x")) {
-                System.out.println("Bye!");
-                homeMenu = false;
-            }else {
-                System.out.println("Invalid Input");
-            }
-
-
-
-
-        }//while loop end
-
-
+        /*
+         * Program Entry Point:
+         * - Starts the accounting ledger application
+         * - All functionality is delegated to Menus class
+         * - Consider adding splash screen or initialization checks here
+         */
+Menus.startAccountingLedger();
 
     }
 }
