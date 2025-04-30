@@ -314,6 +314,7 @@ public class SearchList {
     }
 
 /* ==============FLOW VISUALIZATION================
+- I asked AI for a visual representation of this method
 
 START
   │
