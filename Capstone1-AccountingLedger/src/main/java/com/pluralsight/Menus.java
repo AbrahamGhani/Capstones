@@ -18,6 +18,16 @@ public class Menus {
      */
 
     public static void startAccountingLedger() {
+        System.out.println("============================");
+        System.out.println("   ACCOUNTING LEDGER APP    ");
+        System.out.println("         v1.2              ");
+        System.out.println("============================");
+        System.out.println("Loading...");
+        // Simulate loading delay (optional)
+        try { Thread.sleep(1500); } catch (InterruptedException e) {}
+        System.out.println("Ready!\n");
+
+
         boolean homeMenu = true;
         while (homeMenu) {
             List<Transaction> transactions = TransactionHelper.listOfTransactions();
