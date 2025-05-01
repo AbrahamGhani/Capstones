@@ -7,6 +7,9 @@ by type, vendor, date range, or price range. All transactions are saved into a C
 
 Demonstrates usage of Java development skills like file handling, user input usage, and CLI navigation.
 
+## Demo
+[![Demo Video](https://img.youtube.com/vi/YKZ-yAbuyzk/0.jpg)](https://www.youtube.com/watch?v=YKZ-yAbuyzk)
+
 
 ## Features
 - Add new deposits
@@ -30,14 +33,11 @@ Demonstrates usage of Java development skills like file handling, user input usa
    ```bash
    cd Capstone1-AccountingLedger
     ```
-3. Compile the project:
+3. Run with Maven
    ```bash
-   javac src/main/java/com/pluralsight/*.java
+   mvn compile exec:java -Dexec.mainClass="com.pluralsight.Main"
     ```
-4. Run the code:
-    ```bash
-   java -cp src/main/java com.pluralsight.Main
-    ```
+
 
 - Notes:
     - You can run this project in an IDE
@@ -55,6 +55,11 @@ Use the menu options to:
 All transactions are saved in the transactions.csv file located in the same project directory.
 
 ## Screenshots
+| Feature          | Preview      |
+|------------------|--------------|
+| Main Menu        |  ![Menu](screenshots/Capstone1-MainMenu.png)
+| Ledger Entry     |  ![Payment](screenshots/Capstone1-LedgerMenu.png)
+| Reports View     |  ![Ledger](screenshots/Capstone1-ReportsMenu.png)
 
 ## Technologies Used
 - Java 17
