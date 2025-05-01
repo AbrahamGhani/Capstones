@@ -7,7 +7,7 @@ by type, vendor, date range, or price range. All transactions are saved into a C
 
 Demonstrates usage of Java development skills like file handling, user input usage, and CLI navigation.
 
-## Demo
+## Demo video
 [![Demo Video](https://img.youtube.com/vi/YKZ-yAbuyzk/0.jpg)](https://www.youtube.com/watch?v=YKZ-yAbuyzk)
 
 
