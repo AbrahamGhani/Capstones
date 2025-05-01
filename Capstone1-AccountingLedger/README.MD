@@ -61,6 +61,11 @@ All transactions are saved in the transactions.csv file located in the same proj
 | Ledger Menu      |  ![Payment](screenshots/Capstone1-LedgerMenu.png)
 | Reports View     |  ![Ledger](screenshots/Capstone1-ReportsMenu.png)
 
+## Interesting Code
+ Interesting Piece of Code | Explanation |
+|---------------------------|-------------|
+| ![InterestingCode](screenshots/Capstone1-InterestingCode.png) | The use of Java's time tools was particularly interesting. I liked the idea of automatically logging timestamps for transactions, then sorting and organizing them based on that information. |
+
 ## Technologies Used
 - Java 17
 - Java File I/O (BufferedReader, BufferedWriter)
