@@ -55,10 +55,10 @@ Use the menu options to:
 All transactions are saved in the transactions.csv file located in the same project directory.
 
 ## Screenshots
-| Feature          | Preview      |
+| Menus            | Preview      |
 |------------------|--------------|
 | Main Menu        |  ![Menu](screenshots/Capstone1-MainMenu.png)
-| Ledger Entry     |  ![Payment](screenshots/Capstone1-LedgerMenu.png)
+| Ledger Menu      |  ![Payment](screenshots/Capstone1-LedgerMenu.png)
 | Reports View     |  ![Ledger](screenshots/Capstone1-ReportsMenu.png)
 
 ## Technologies Used
