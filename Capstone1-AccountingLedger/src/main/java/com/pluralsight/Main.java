@@ -27,7 +27,10 @@ public class Main {
          * - All functionality is delegated to Menus class
          * - Consider adding splash screen or initialization checks here
          */
+
 Menus.startAccountingLedger();
+
+
 
     }
 }
