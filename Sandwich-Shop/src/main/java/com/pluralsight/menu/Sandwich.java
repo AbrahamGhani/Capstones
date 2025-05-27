@@ -1,6 +1,12 @@
 package com.pluralsight.menu;
 
-public class Sandwich {
+import com.pluralsight.core.MenuItem;
+import com.pluralsight.toppings.Topping;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class Sandwich extends MenuItem {
 
     /*
      * Subclass of MenuItem representing a customizable sandwich.
@@ -17,5 +23,6 @@ public class Sandwich {
      * - isToasted(): boolean
      * - setToasted(t: boolean): void
      */
+
 
 }

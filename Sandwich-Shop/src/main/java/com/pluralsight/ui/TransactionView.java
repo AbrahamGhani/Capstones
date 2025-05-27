@@ -1,6 +1,8 @@
 package com.pluralsight.ui;
 
 public class TransactionView {
+
+
     // should only be accessible to the manager
     /*
      * CLI view for listing past transactions.
@@ -11,5 +13,7 @@ public class TransactionView {
      * Methods:
      * - displayTransactions(trans: List<Order<?>>): void
      */
+
+
 
 }

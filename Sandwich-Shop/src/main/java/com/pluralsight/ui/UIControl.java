@@ -2,9 +2,10 @@ package com.pluralsight.ui;
 
 public class UIControl {
 
+
     /*
  * Controller class for coordinating UI events and logic.
- *
+
  * Fields:
  * - manager: Manager
  * - currentOrder: Order<Priceable>
@@ -13,7 +14,8 @@ public class UIControl {
  * - menuItemsView: MenuItemsView
  * - orderView: OrderView
  * - transactionView: TransactionView
- *
+
+
  * Methods:
  * - startApp(): void
  * - onLogin(user: String, pass: String): void
