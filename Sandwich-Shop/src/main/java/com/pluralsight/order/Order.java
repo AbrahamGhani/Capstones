@@ -26,5 +26,40 @@ public class Order<T extends Priceable> {
      */
 
 
+    private String id;
+    private List<T> items;
+    private LocalDateTime timestamp;
+
+    public Order(String id) {
+        this.id = id;
+        this.items = new ArrayList<>();
+        this.timestamp = LocalDateTime.now();
+    }
+
+    public void addItem(T item) {
+        items.add(item);
+    }
+
+    public void removeItem(T item) {
+        items.remove(item);
+    }
+
+    public double getTotalPrice() {
+        return items.stream()
+                .mapToDouble(Priceable::getPrice)
+                .sum();
+    }
+
+    public List<T> getItems() {
+        return items;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
 
 }
