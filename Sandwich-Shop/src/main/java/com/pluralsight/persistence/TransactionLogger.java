@@ -30,15 +30,26 @@ public class TransactionLogger {
 
     public void logTransaction(Order<? extends Priceable> order) {
         StringBuilder sb = new StringBuilder();
-        sb.append("Order ").append(order.getId()).append(" @ ").append(order.getTimestamp()).append("\n");
-        order.getItems().forEach(item ->
-                sb.append("- ").append(item.getClass().getSimpleName())
-                        .append(" - $").append(item.getPrice()).append("\n")
-        );
+
+        sb.append("Order ").append(order.getId())
+                .append(" @ ").append(order.getTimestamp())
+                .append("\n");
+
+        List<? extends Priceable> items = order.getItems();
+
+        for (int i = 0; i < items.size(); i++) {
+            Priceable item = items.get(i);
+            sb.append("- ").append(item.getClass().getSimpleName())
+                    .append(" - $").append(item.getPrice())
+                    .append("\n");
+        }
+
         sb.append("Total: $").append(order.getTotalPrice()).append("\n\n");
 
         try {
-            Files.writeString(Paths.get(logFilename), sb.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            Path path = Paths.get(logFilename);
+            Files.createDirectories(path.getParent());  // ✅ create 'receipts/' if missing
+            Files.writeString(path, sb.toString(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
         } catch (IOException e) {
             System.err.println("Failed to log transaction: " + e.getMessage());
         }

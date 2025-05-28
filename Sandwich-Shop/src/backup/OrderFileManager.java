@@ -1,18 +1,12 @@
-package com.pluralsight.persistence;
+package backup;
 import com.pluralsight.core.Priceable;
 import com.pluralsight.order.Order;
+import com.pluralsight.persistence.FileManager;
+
 public class OrderFileManager {
 
     /*
-     * Responsible for saving/loading Order data using FileManager.
-     *
-     * Fields:
-     * - fm: FileManager
-     * - orderFilename: String
-     *
-     * Methods:
-     * - saveOrder(order: Order<? extends Priceable>): void
-     * - loadOrder(id: String): Order<? extends Priceable>
+     was never used. just stuck with transaction logger class instead
      */
 
     private FileManager fm;

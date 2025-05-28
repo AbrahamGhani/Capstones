@@ -30,8 +30,8 @@ public class OrderView {
             Priceable item = items.get(i);
             System.out.printf("%d. %s: $%.2f%n",
                     i + 1,
-                    items.get(i).getClass().getSimpleName(),
-                    items.get(i).getPrice()
+                    item.getClass().getSimpleName(),
+                    item.getPrice()
             );
         }
 

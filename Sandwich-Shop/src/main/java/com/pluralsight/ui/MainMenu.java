@@ -26,11 +26,13 @@ public class MainMenu {
         while (true) {
             System.out.println("\n=== Main Menu ===");
             System.out.println("1. View Menu Items");
-            System.out.println("2. Create Order");
-            System.out.println("3. View Transactions");
+            System.out.println("2. Checkout");
+            if (controller.isManagerLoggedIn()) {
+                System.out.println("3. View Transactions");
+            }
             System.out.println("0. Exit");
-            System.out.print("Choose an option: ");
 
+            System.out.print("Choose an option: ");
             String choice = scanner.nextLine();
 
             switch (choice) {
@@ -41,13 +43,16 @@ public class MainMenu {
                     controller.showOrderView();
                     break;
                 case "3":
-                    controller.showTransactionView();
+                    if (controller.isManagerLoggedIn()) {
+                        controller.showTransactionView();
+                    } else {
+                        System.out.println("Unauthorized.");
+                    }
                     break;
                 case "0":
-                    System.out.println("Goodbye!");
                     return;
                 default:
-                    System.out.println("Invalid option. Try again.");
+                    System.out.println("Invalid choice. Try again.");
             }
         }
     }

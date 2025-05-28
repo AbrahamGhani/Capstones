@@ -22,8 +22,18 @@ public class TransactionView {
     public TransactionView(UIControl controller) {
         this.controller = controller;
     }
+    public void displayRawLogs(List<String> lines) {
+        for (String line : lines) {
+            System.out.println(line);
+        }
+    }
 
     public void displayTransactions(List<Order<?>> transactions) {
+        if (!controller.isManagerLoggedIn()) {
+            System.out.println("Access Denied. Only managers can view transactions.");
+            return;
+        }
+
         System.out.println("\n=== Transaction History ===");
 
         if (transactions == null || transactions.isEmpty()) {
