@@ -1,14 +1,7 @@
-Order ORDER-1748455087827 @ 2025-05-28T10:58:07.835200700
-- Sandwich - $12.0
-- Sandwich - $9.5
+Order ORDER-1748538529763 @ 2025-05-29T10:08:49.771035400
+- Sandwich - $10.0
+- Sandwich - $18.125
 - Drink - $3.0
 - Chips - $1.0
-Total: $25.5
-
-Order ORDER-1748455151305 @ 2025-05-28T10:59:11.314559400
-- Sandwich - $9.5
-- Sandwich - $11.0
-- Drink - $3.0
-- Chips - $1.75
-Total: $25.25
+Total: $32.125
 

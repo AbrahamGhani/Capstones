@@ -98,9 +98,11 @@ public class MenuItemsView {
     private Sandwich buildCustomSandwich() {
         System.out.println("\n=== Build Your Own Sandwich ===");
 
+        // Bread
         System.out.print("Choose bread (White/Wheat/Rye/Wrap): ");
         String bread = scanner.nextLine();
 
+        // Size
         String size = promptSizeWithValidation("sandwich", new String[]{"4\"", "8\"", "12\""});
         double basePrice = switch (size) {
             case "4\"" -> 5.50;
@@ -109,27 +111,65 @@ public class MenuItemsView {
             default -> 7.00;
         };
 
+        // Create sandwich
         Sandwich custom = new Sandwich("Custom Sandwich", basePrice, bread, size);
 
-        // Add toppings
-        System.out.print("Add bacon? (y/n): ");
-        if (scanner.nextLine().equalsIgnoreCase("y"))
-            custom.addTopping(new PremiumTopping("Bacon", 2.00));
-
-        System.out.print("Add lettuce? (y/n): ");
-        if (scanner.nextLine().equalsIgnoreCase("y"))
-            custom.addTopping(new RegularTopping("Lettuce"));
-
-        System.out.print("Add tomato? (y/n): ");
-        if (scanner.nextLine().equalsIgnoreCase("y"))
-            custom.addTopping(new RegularTopping("Tomato"));
-
+        // Toasted
         System.out.print("Toast it? (y/n): ");
-        if (scanner.nextLine().equalsIgnoreCase("y"))
+        if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
             custom.setToasted(true);
+        }
+
+        // Meats
+        String[] meats = {"Bacon", "Ham", "Steak", "Turkey"};
+        for (String meat : meats) {
+            System.out.printf("Add %s? (y/n): ", meat);
+            if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                custom.addTopping(new PremiumTopping(meat, 0));  // base meat
+
+                System.out.printf("Add extra %s? (y/n): ", meat);
+                if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                    custom.addTopping(new PremiumTopping(meat + " (extra)", 0));
+                }
+            }
+        }
+
+        // Cheeses
+        String[] cheeses = {"Swiss", "Cheddar", "Provolone"};
+        for (String cheese : cheeses) {
+            System.out.printf("Add %s cheese? (y/n): ", cheese);
+            if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                custom.addTopping(new PremiumTopping(cheese, 0));  // base cheese
+
+                System.out.printf("Add extra %s cheese? (y/n): ", cheese);
+                if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                    custom.addTopping(new PremiumTopping(cheese + " (extra)", 0));
+                }
+            }
+        }
+
+        // Regular toppings
+        String[] regulars = {"Lettuce", "Tomato", "Cucumber", "Mushrooms", "Onions", "Pickles"};
+        for (String topping : regulars) {
+            System.out.printf("Add %s? (y/n): ", topping);
+            if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                custom.addTopping(new RegularTopping(topping));
+            }
+        }
+
+        // Sauces
+        String[] sauces = {"Mayo", "Mustard", "Chipotle", "Ranch"};
+        for (String sauce : sauces) {
+            System.out.printf("Add %s? (y/n): ", sauce);
+            if (scanner.nextLine().trim().toLowerCase().startsWith("y")) {
+                custom.addTopping(new RegularTopping(sauce));
+            }
+        }
 
         return custom;
     }
+
+
 
     public void displayDrinks() {
         System.out.println("\n=== Choose Your Drink ===");

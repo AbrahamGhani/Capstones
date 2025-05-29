@@ -120,6 +120,7 @@ public class UIControl {
             // log transaction
             TransactionLogger logger = new TransactionLogger("receipts/transactions.txt");
             logger.logTransaction(currentOrder);
+            TransactionLogger.saveOrderToFile(currentOrder);
             System.out.println("✅ Order has been saved and checked out.");
 
             // clear cart

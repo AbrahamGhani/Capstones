@@ -1,6 +1,7 @@
 package com.pluralsight.menu;
 
 import com.pluralsight.core.MenuItem;
+import com.pluralsight.toppings.PremiumTopping;
 import com.pluralsight.toppings.Topping;
 import java.util.ArrayList;
 import java.util.List;
@@ -65,13 +66,61 @@ public class Sandwich extends MenuItem {
         return size;
     }
 
-    @Override
-    public double getPrice() {
-        // Base price + sum of all topping prices
-        return getBasePrice() + toppings.stream()
-                .mapToDouble(Topping::getPrice)
-                .sum();
+
+
+
+    private boolean isCheese(String name) {
+        return name.toLowerCase().contains("swiss") ||
+                name.toLowerCase().contains("cheddar") ||
+                name.toLowerCase().contains("provolone");
     }
 
+    private boolean isMeat(String name) {
+        return name.toLowerCase().contains("bacon") ||
+                name.toLowerCase().contains("ham") ||
+                name.toLowerCase().contains("steak") ||
+                name.toLowerCase().contains("turkey");
+    }
+
+    @Override
+    public double getPrice() {
+        double total = getBasePrice();
+
+        for (Topping topping : toppings) {
+            if (topping instanceof PremiumTopping) {
+                String name = topping.getName();
+                boolean isExtra = name.toLowerCase().contains("extra");
+
+                if (isCheese(name)) {
+                    total += getCheesePrice(size, isExtra);
+                } else if (isMeat(name)) {
+                    total += getMeatPrice(size, isExtra);
+                }
+            }
+        }
+
+        return total;
+    }
+
+
+    private double getMeatPrice(String size, boolean extra) {
+        double base = switch (size) {
+            case "4\"" -> 1.00;
+            case "8\"" -> 2.00;
+            case "12\"" -> 3.00;
+            default -> 0;
+        };
+        return extra ? base * 1.5 : base;
+    }
+
+    private double getCheesePrice(String size, boolean extra) {
+        double base = switch (size) {
+            case "4\"" -> 0.75;
+            case "8\"" -> 1.50;
+            case "12\"" -> 2.25;
+            default -> 0;
+        };
+        return extra ? base * 1.5 : base;
+    }
 
 }
